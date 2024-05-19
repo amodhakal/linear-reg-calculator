@@ -1,2 +1,2 @@
 ## Linear Regression Calculator
-Calculates the linear regression of the given data. Here's an example below of what the input file and the standard output would be. The given output.txt is not an accurate representation of what the value from the input.txt would be.
+Calculates the linear regression of the given input file data.
