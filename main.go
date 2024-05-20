@@ -8,6 +8,5 @@ func main() {
 	intercept := util.CalculateIntecept(orderedPairs, xMean, yMean)
 	slope := util.CalculateSlop(intercept, xMean, yMean)
 
-	var rSquared float64 = 0
-	util.PrintResults(len(orderedPairs), slope, intercept, rSquared)
+	util.PrintResults(len(orderedPairs), slope, intercept)
 }

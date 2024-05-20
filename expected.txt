@@ -1,4 +1,3 @@
 Count: 506
 Slope: 51.8594
 Intercept: -6.2385
-R2: 0.3768

@@ -46,9 +46,8 @@ func ReadFileFromArgs() [][2]float64 {
 	return data
 }
 
-func PrintResults(count int, slope float64, intercept float64, rSquared float64) {
+func PrintResults(count int, slope float64, intercept float64) {
 	fmt.Printf("Count: %d\n", count)
 	fmt.Printf("Slope: %.4f\n", slope)
 	fmt.Printf("Intercept: %.4f\n", intercept)
-	fmt.Printf("R2: %.4f\n", rSquared)
 }
