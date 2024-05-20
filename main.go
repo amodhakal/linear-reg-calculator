@@ -4,7 +4,7 @@ import "github.com/amodhakal/linear-reg-calculator/util"
 
 func main() {
 	orderedPairs := util.ReadFileFromArgs()
+	var slope, intecept, rSquared float64 = 0, 0, 0
 
-	// The below line is just there so I don't get an error for not using the variable
-	println(len(orderedPairs))
+	util.PrintResults(len(orderedPairs), slope, float64(intecept), float64(rSquared))
 }
