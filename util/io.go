@@ -12,7 +12,8 @@ func ReadFileFromArgs() [][2]float64 {
 		log.Fatal("Invalid arguments")
 	}
 
-	file, err := os.Open(os.Args[1])
+	filename := os.Args[1]
+	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal("Can't read the given file")
 	}
