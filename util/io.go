@@ -7,12 +7,8 @@ import (
 	"os"
 )
 
-func ReadFileFromArgs() [][2]float64 {
-	if len(os.Args) != 2 {
-		log.Fatal("Invalid arguments")
-	}
+func ReadFile(filename string) [][2]float64 {
 
-	filename := os.Args[1]
 	file, err := os.Open(filename)
 	if err != nil {
 		log.Fatal("Can't read the given file")

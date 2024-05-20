@@ -27,6 +27,6 @@ func CalculateIntecept(orderedPairs [][2]float64, xMean float64, yMean float64) 
 	return numeratorSum / denominatorSum
 }
 
-func CalculateSlop(intercept float64, xMean float64, yMean float64) float64 {
+func CalculateSlope(intercept float64, xMean float64, yMean float64) float64 {
 	return yMean - intercept*xMean
 }

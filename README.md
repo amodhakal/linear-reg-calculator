@@ -1,7 +1,10 @@
 ## Linear Regression Calculator
+Calculates the slope and the intercept of the linear regression of the given input file data.
 
-Calculates the slope and the intercept of the linear regression of the given input file data. 
+To use the program, compile the program using `go build main.go`.
 
-To use the program, compile the program using `go build main.go`. After that, run the program using `./main ?` where ? is the name of the input file. The input file should preferably be in a .csv format but .txt format is also fine.
+To display the slope and intercept of the linear regression model to the standard output, use `./main --1 display` wheere --1 is the input file name
 
-The program will output the slope and the intercept of the linear regression model to the standard output once it is done, where there will be four numbers after the decimal point in the output.
+The display the expected y value to the standard output, use `./main --1 calculate y --2` where --1 is the input file name and --2 is the x value used to calculate the expected y value
+
+The display the expected x value to the standard output, use `./main --1 calculate x --2` where --1 is the input file name and --2 is the y value used to calculate the expected x value
