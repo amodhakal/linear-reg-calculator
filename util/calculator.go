@@ -3,7 +3,7 @@ package util
 import "math"
 
 func CalculateSampleMeans(orderedPairs [][2]float64) (float64, float64) {
-	var xSum, ySum, count float64 = 0, 0, float64(len(orderedPairs))
+	xSum, ySum, count float64 := 0.0, 0.0, float64(len(orderedPairs))
 
 	for _, orderedPair := range orderedPairs {
 		xSum += orderedPair[0]
@@ -14,7 +14,7 @@ func CalculateSampleMeans(orderedPairs [][2]float64) (float64, float64) {
 }
 
 func CalculateIntecept(orderedPairs [][2]float64, xMean float64, yMean float64) float64 {
-	var numeratorSum, denominatorSum float64 = 0, 0
+	numeratorSum, denominatorSum := 0.0, 0.0
 
 	for _, orderedPair := range orderedPairs {
 		xMeanDiff := orderedPair[0] - xMean
