@@ -1,10 +1,9 @@
 package main
 
 import (
+	"bufio"
 	"fmt"
-	"log"
 	"os"
-	"strconv"
 
 	"github.com/amodhakal/linear-reg-calculator/util"
 )
@@ -16,26 +15,32 @@ func main() {
 	xMean, yMean := util.CalculateSampleMeans(orderedPairs)
 	intercept := util.CalculateIntecept(orderedPairs, xMean, yMean)
 	slope := util.CalculateSlope(intercept, xMean, yMean)
+	reader := bufio.NewReader(os.Stdin)
 
-	if len(os.Args) == 3 && os.Args[2] == "display" {
-		util.PrintResults(len(orderedPairs), slope, intercept)
-	} else if len(os.Args) == 5 && os.Args[2] == "calculate" && os.Args[3] == "y" {
-		xVal, err := strconv.ParseFloat(os.Args[4], 64)
-		if err != nil {
-			log.Fatal("Number expected for the 4th argument")
+	for {
+		print("<cmd> ")
+		line, _ := reader.ReadString('\n')
+
+		if line == "display\n" {
+			util.PrintResults(len(orderedPairs), slope, intercept)
+			continue
 		}
 
-		fmt.Printf("Expected y-value: %.4f\n", (xVal*slope + intercept))
-
-	} else if len(os.Args) == 5 && os.Args[2] == "calculate" && os.Args[3] == "x" {
-		yVal, err := strconv.ParseFloat(os.Args[4], 64)
-		if err != nil {
-			log.Fatal("Number expected for the 4th argument")
+		if line == "quit\n" {
+			break
 		}
 
-		fmt.Printf("Expected y-value: %.4f\n", ((yVal - intercept) / slope))
+		cmd, direction, val := "", "", 0.0
+		result, _ := fmt.Sscanf(line, "%s %s %f\n", &cmd, &direction, &val)
 
-	} else {
-		log.Fatal("Invalid arguments")
+		if result != 3 || cmd != "calculate" {
+			println("Invalid command")
+		} else if direction == "y" {
+			fmt.Printf("Expected y-value: %.4f\n", (val*slope + intercept))
+		} else if direction == "x" {
+			fmt.Printf("Expected x-value: %.4f\n", ((val - intercept) / slope))
+		} else {
+			println("Invalid command")
+		}
 	}
 }
