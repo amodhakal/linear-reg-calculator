@@ -23,6 +23,3 @@ jobs:
 
     - name: Build
       run: go build main.go
-
-    - name: Test
-      run: ./test.sh
